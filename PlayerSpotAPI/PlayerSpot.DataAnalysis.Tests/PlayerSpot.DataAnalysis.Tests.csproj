@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0F6B999B-F49B-42DC-8B4E-E82B2D3FDA87}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PlayerSpot.DataAnalysis.Tests</RootNamespace>
+    <AssemblyName>PlayerSpot.DataAnalysis.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="LoL\LoLDataAnalysisTests.cs" />
+    <Compile Include="LoL\Matches.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Matches.resx</DependentUpon>
+    </Compile>
+    <Compile Include="LoL\StaticData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StaticData.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PlayerSpot.Business\PlayerSpot.Business.csproj">
+      <Project>{833BB24E-F85C-469C-B362-08979B467FF0}</Project>
+      <Name>PlayerSpot.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlayerSpot.DataAnalysis\PlayerSpot.DataAnalysis.csproj">
+      <Project>{73be4e3f-aea5-4f5a-8132-8c5bf1fe712e}</Project>
+      <Name>PlayerSpot.DataAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlayerSpot.Data\PlayerSpot.Data.csproj">
+      <Project>{907f9058-0062-474b-bbc6-e8e20f40e76c}</Project>
+      <Name>PlayerSpot.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlayerSpot.LoL.ApiServices\PlayerSpot.LoL.ApiServices.csproj">
+      <Project>{5E1E508D-1264-4195-B6F4-4B23579901B3}</Project>
+      <Name>PlayerSpot.LoL.ApiServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlayerSpotAPI\PlayerSpotAPI.csproj">
+      <Project>{A8A9469C-2422-4497-9DB4-81032237B16B}</Project>
+      <Name>PlayerSpotAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LoL\Matches.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Matches.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoL\StaticData.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StaticData.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\772027880.json" />
+    <None Include="Resources\772300685.json" />
+    <None Include="Resources\772324227.json" />
+    <None Include="Resources\772327844.json" />
+    <None Include="Resources\772449710.json" />
+    <None Include="Resources\772456949.json" />
+    <None Include="Resources\777179428.json" />
+    <None Include="Resources\777244703.json" />
+    <None Include="Resources\777257924.json" />
+    <None Include="Resources\777325957.json" />
+    <None Include="Resources\777331863.json" />
+    <None Include="Resources\777505453.json" />
+    <None Include="Resources\777517837.json" />
+    <None Include="Resources\777590858.json" />
+    <None Include="Resources\champion.json" />
+    <None Include="Resources\item.json" />
+    <None Include="Resources\mastery.json" />
+    <None Include="Resources\rune.json" />
+    <None Include="Resources\summoner-spell.json" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

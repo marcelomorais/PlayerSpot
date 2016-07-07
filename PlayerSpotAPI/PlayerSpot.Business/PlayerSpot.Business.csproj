@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{833BB24E-F85C-469C-B362-08979B467FF0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PlayerSpot.Business</RootNamespace>
+    <AssemblyName>PlayerSpot.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataBinders\LoLServiceBinder.cs" />
+    <Compile Include="Interfaces\ILoLService.cs" />
+    <Compile Include="Interfaces\ITwitchTvService.cs" />
+    <Compile Include="Models\UserData.cs" />
+    <Compile Include="Models\UserGameAnalysis.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interfaces\IPlayerspotService.cs" />
+    <Compile Include="Service\LoLService.cs" />
+    <Compile Include="Service\PlayerspotService.cs" />
+    <Compile Include="Service\TwitchTvService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PlayerSpot.DataAnalysis\PlayerSpot.DataAnalysis.csproj">
+      <Project>{73be4e3f-aea5-4f5a-8132-8c5bf1fe712e}</Project>
+      <Name>PlayerSpot.DataAnalysis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlayerSpot.Data\PlayerSpot.Data.csproj">
+      <Project>{907f9058-0062-474b-bbc6-e8e20f40e76c}</Project>
+      <Name>PlayerSpot.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlayerSpot.LoL.ApiServices\PlayerSpot.LoL.ApiServices.csproj">
+      <Project>{5e1e508d-1264-4195-b6f4-4b23579901b3}</Project>
+      <Name>PlayerSpot.LoL.ApiServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlayerSpot.Twitchtv.ApiServices\PlayerSpot.Twitchtv.ApiServices.csproj">
+      <Project>{787f8faf-5869-4c04-af8b-4036010f56bb}</Project>
+      <Name>PlayerSpot.Twitchtv.ApiServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
